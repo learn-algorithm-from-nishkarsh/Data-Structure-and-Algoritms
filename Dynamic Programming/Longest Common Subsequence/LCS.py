@@ -72,7 +72,7 @@ def main():
     M = len(S1)
     N = len(S2)
 
-    res = LCS_RECURSIVE(S1,S2,M - 1,N -1);
+    res = LCS_RECURSIVE(S1,S2,M - 1,N -1)
     print("LCS : ",res,end="\n");
 
     # Create a memoization table and initialize with -1
