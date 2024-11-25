@@ -21,13 +21,17 @@ def LCS_RECURSIVE(S1, S2, ind1, ind2):
         # 1. Exclude the last character of S1 
         # 2. Exclude the last character of S2 
         # Take the maximum of these two recursive calls
-        return max(LCS_RECURSIVE(S1,S2,ind1 - 1,ind2), LCS_RECURSIVE(S1,S2,ind1,ind2 - 1));
+        return max(LCS_RECURSIVE(S1,S2,ind1 - 1,ind2), LCS_RECURSIVE(S1,S2,ind1,ind2 - 1))
 
 def LCS_top_down_appraoch(S1, S2, ind1, ind2, memo):
 
     # Base case: If either string is empty, the length of LCS is 0
     if(ind1 < 0 or ind2 < 0):
         return 0
+
+    # Check if the result is already exists in the memo table
+    if memo[m][n] != -1:
+        return memo[m][n]
 
     # If the last characters of both substrings match
     if(S1[ind1] == S2[ind2]):
