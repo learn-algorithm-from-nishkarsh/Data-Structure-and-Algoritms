@@ -1,3 +1,9 @@
+/***
+ * Code Written By: Nishkarsh Makhija
+ * Code Written for: Learn Algorithm
+ * Insta Handle : learn_algorithm  
+**/
+
 #include <bits/stdc++.h>
 using namespace std;
 

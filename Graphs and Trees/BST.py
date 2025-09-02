@@ -1,3 +1,9 @@
+'''
+ * Code Written By: Nishkarsh Makhija
+ * Code Written for: Learn Algorithm
+ * Insta Handle : learn_algorithm  
+'''
+
 class Node:
     def __init__(self, data):
         self.data = data
