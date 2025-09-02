@@ -1,3 +1,9 @@
+'''
+ * Code Written By: Nishkarsh Makhija
+ * Code Written for: Learn Algorithm
+ * Insta Handle : learn_algorithm  
+'''
+
 import sys
 
 def MCM_RECURSIVE(arr, start, end):
@@ -48,22 +54,6 @@ def MCM_top_down_appraoch(arr, start, end, memo):
     # Return minimum count
     return res
 
-def main():
-    arr = [1, 2, 3, 4, 3]
-    N = len(arr)
-
-    res = MCM_RECURSIVE(arr, 0, N-1)
-    print("MCM Cost : ",res,end="\n");
-
-    # Create a memoization table and initialize with -1
-    memo = [[-1 for _ in range(N)] for _ in range(N)]
-
-    res = MCM_top_down_appraoch(arr, 0, N-1 ,memo)
-    print("MCM Cost : ",res,end="\n")
-    
-main()
-
-    
 
 def MCM_bottom_up_appraoch(arr):
   
@@ -85,11 +75,20 @@ def MCM_bottom_up_appraoch(arr):
     # Minimum cost is in dp[0][N-1]
     return dp[0][N-1]
 
+def main():
+    arr = [1, 2, 3, 4, 3]
+    N = len(arr)
 
+    res = MCM_RECURSIVE(arr, 0, N-1)
+    print("MCM Cost : ",res,end="\n");
 
+    # Create a memoization table and initialize with -1
+    memo = [[-1 for _ in range(N)] for _ in range(N)]
 
-'''
- * Code Written By: Nishkarsh Makhija
- * Code Written for: Learn Algorithm
- * Insta Handle : learn_algorithm  
-'''
+    res = MCM_top_down_appraoch(arr, 0, N-1 ,memo)
+    print("MCM Cost : ",res,end="\n")
+
+    res = MCM_bottom_up_appraoch(arr)
+    print("MCM Cost : ",res,end="\n")
+    
+main()

@@ -1,3 +1,27 @@
+int MCM_bottom_up_appraoch(int arr[], int N)
+{
+    
+    // Initializing a matrix of size (N)*(N)
+    vector<vector<int>> dp(N, vector<int>(N, 0));
+
+    // Building dp[N][N] in bottom-up fashion
+    for(int len = 2; len < N; len++){
+        for(int i=0; i < N-len; i++){
+            int j = i + len;
+            dp[i][j] = INT_MAX;
+
+            for(int k = i+1; k < j; k++){
+                int cost = dp[i][k] + dp[k][j] + arr[i] * arr[k] * arr[j];
+                dp[i][j] = min(dp[i][j], cost);
+            }
+        }
+    }
+        
+
+    // Minimum cost is in dp[0][N-1]
+    return dp[0][N-1];
+}
+
 /***
  * Code Written By: Nishkarsh Makhija
  * Code Written for: Learn Algorithm
@@ -61,29 +85,7 @@ int MCM_top_down_appraoch(int arr[], int start, int end, vector<vector<int>> &me
     return res;
 }
 
-int MCM_bottom_up_appraoch(int arr[], int N)
-{
-    
-    // Initializing a matrix of size (N)*(N)
-    vector<vector<int>> dp(N, vector<int>(N, 0));
 
-    // Building dp[N][N] in bottom-up fashion
-    for(int len = 2; len < N; len++){
-        for(int i=0; i < N-len; i++){
-            int j = i + len;
-            dp[i][j] = INT_MAX;
-
-            for(int k = i+1; k < j; k++){
-                int cost = dp[i][k] + dp[k][j] + arr[i] * arr[k] * arr[j];
-                dp[i][j] = min(dp[i][j], cost);
-            }
-        }
-    }
-        
-
-    // Minimum cost is in dp[0][N-1]
-    return dp[0][N-1];
-}
 
 int main(){
 
